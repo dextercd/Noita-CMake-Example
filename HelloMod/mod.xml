@@ -1,0 +1,4 @@
+<Mod
+    name="HelloMod"
+    description="Basic mod showcasing CMake usage."
+/>
