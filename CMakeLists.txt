@@ -13,6 +13,32 @@ install(DIRECTORY HelloMod
 )
 
 
+# Dependencies
+
+include(FetchContent)
+
+FetchContent_Declare(EZWand
+    URL https://github.com/TheHorscht/EZWand/releases/download/v1.5.0/EZWand.lua
+    DOWNLOAD_NO_EXTRACT TRUE
+)
+FetchContent_MakeAvailable(EZWand)
+
+install(FILES ${ezwand_SOURCE_DIR}/EZWand.lua
+    DESTINATION HelloMod/lib/EZWand
+    COMPONENT HelloMod
+)
+
+FetchContent_Declare(LuaJIT-MinHook
+    URL https://github.com/dextercd/LuaJIT-MinHook/releases/download/release-1.1.1/LuaJIT-MinHook-1.1.1.zip
+)
+FetchContent_MakeAvailable(LuaJIT-MinHook)
+
+install(DIRECTORY ${luajit-minhook_SOURCE_DIR}/
+    DESTINATION HelloMod/lib/MinHook
+    COMPONENT HelloMod
+)
+
+
 # Packaging
 
 set(CPACK_VERBATIM_VARIABLES TRUE)
