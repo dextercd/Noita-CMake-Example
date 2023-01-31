@@ -4,7 +4,7 @@ project(HelloMod
     VERSION 0.1.0
     DESCRIPTION "Noita example mod"
     HOMEPAGE_URL "https://github.com/dextercd/Noita-CMake-Example"
-    LANGUAGES # Empty
+    LANGUAGES CXX
 )
 
 install(DIRECTORY HelloMod
@@ -35,6 +35,18 @@ FetchContent_MakeAvailable(LuaJIT-MinHook)
 
 install(DIRECTORY ${luajit-minhook_SOURCE_DIR}/
     DESTINATION HelloMod/lib/MinHook
+    COMPONENT HelloMod
+)
+
+
+# C++ module
+
+add_library(clipboard MODULE
+    clipboard.cpp
+)
+
+install(TARGETS clipboard
+    LIBRARY DESTINATION HelloMod/dll
     COMPONENT HelloMod
 )
 

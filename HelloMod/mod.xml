@@ -1,4 +1,5 @@
 <Mod
     name="HelloMod"
     description="Basic mod showcasing CMake usage."
+    request_no_api_restrictions="1"
 />
